@@ -12,12 +12,35 @@ LSTM模型是一种特殊的RNN模型，能够学习长期规律
 ## 环境配置
 需要用到：
 1.TensorFlow 2.0
-3.keras
-4.sklearn
-5.librosa。 librosa库是用于音频、音乐分析、处理的库
+2.keras
+3.sklearn
+4.librosa。 librosa库是用于音频、音乐分析、处理的库
 ### TensorFlow
 TensorFlow是由谷歌开发的一个开源、基于python的机器学习框架，能够应用在图形分类、音频处理、推荐系统和自然语言处理等应用场景下。
 ### Keras
 keras是用纯python编写，基于TensorFlow的深度学习框架。
 keras是一个高层神经网络API，支持快速实验，能够快速把idea转换为结果，尤其适用于以下需求：
-
+1）简易和快速的原型设计
+2）支持CNN和RNN，或者二者结合
+3）无缝CPU和GPU切换。
+keras的模块结构
+![image](https://user-images.githubusercontent.com/33819026/114298040-e29c9400-9ae6-11eb-8720-05e2257929d1.png)
+使用keras搭建神经网络的流程
+![image](https://user-images.githubusercontent.com/33819026/114298056-f811be00-9ae6-11eb-8996-ee271e1a5141.png)
+#### Keras模型
+keras有两种模型：Sequential models和Function API两种
+1）Sequential models 序贯式，是函数式的一种特殊情况。其特征为：单输入、单输出，一条路通到底，层与层之间是相邻关系，没有跨层链接。这种模型编译速度快，操作简单；
+2）Function API 函数式模型：多输入、多输出，层与层之间任意链接，编译速度较慢
+## sklearn
+sklearn是机器学习中常用的第三方模块，对常用的机器学习方法进行了封装，包括回归（Regression）、降维（Dimensionality Reduction）、分类（classification）、聚类（Clustering）等方法。
+引入数据库的方式主要有以下：
+from sklearn import datasets #引入数据集，sklearn包含众多数据集
+from sklearn.model_selection import train_test_split #将数据分为测试集和训练集
+from sklearn.neighbors import KNeighborsClassifier #利用临近点方式训练数据
+## librosa
+librosa是一个用于音频、音乐分析、处理的python工具包，一些常见的时频处理、特征提取、绘制声音图形等功能均有。
+读取音频
+import librosa
+y,sr=librosa.load('./beat.wav')  #sr为采样率
+提取特征
+mlspec=librosa.feature.melspectrogram(y,sr,n_fft=1024,hop_length=512,n_mels=128)
