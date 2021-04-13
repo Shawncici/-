@@ -49,3 +49,8 @@ mlspec=librosa.feature.melspectrogram(y,sr,n_fft=1024,hop_length=512,n_mels=128)
 Windows电脑中，路径用 \
 在python中，文件夹路径的结尾带有斜杠，
 os.path.join（）函数就是用来补足路径之间的斜杠；
+
+### stack()函数
+1.vstack(tup)  其中，参数tup可以是元组、列表、或numpy数组，返回的结果也是numpy数组
+比如，vstack（a,b） 就是把a、b两个列表/元组，按相同数量的列，堆叠起来，即从行上进行堆叠，把数组的行扩展
+2.hstack（） 类比vstack（），就是把a、b两个列表/元组按照县相同的行，堆叠起来，即把列的数量增加
