@@ -44,3 +44,8 @@ import librosa
 y,sr=librosa.load('./beat.wav')  #sr为采样率
 提取特征
 mlspec=librosa.feature.melspectrogram(y,sr,n_fft=1024,hop_length=512,n_mels=128)
+## 文件夹地址拼接
+在MAC电脑中，路径用 /
+Windows电脑中，路径用 \
+在python中，文件夹路径的结尾带有斜杠，
+os.path.join（）函数就是用来补足路径之间的斜杠；
