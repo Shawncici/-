@@ -3,6 +3,10 @@
 CNN分类模式是参考图片分类形式，根据声音的频谱进行分类。
 CNN模型——convolutional Neural Networks 卷积神经网络，属于深度神经网络DNN的一种。
 ![image](https://user-images.githubusercontent.com/33819026/114294210-9560f800-9acf-11eb-9965-f2b02f9cc8b2.png)
+CNN中激活函数可以选用tanh、sigmoid、Relu；
+目前使用频率最高的是Relu函数；
+当输入的数据的特征相差明显的时候，使用tanh函数，输入数据特征相差不明显的时候，使用sigmoid函数。
+
 
 弊端是：不能够准确识别人说话的文本，但用于区分不同类别的声音是足够的
 ## 基于LSTM的分类模型
