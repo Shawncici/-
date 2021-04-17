@@ -35,3 +35,23 @@ M(f)=1125ln(1+f/700)
 而从美尔频率到频率的转换公式为：
 M−1(m)=700(em/1125−1)
 
+## 数据归一化
+minmax_scale()函数是来自sklearn.preprocessing包中。sklearn.preprocessing.minmax_scale(X, feature_range=(0, 1), axis=0, copy=True)
+该方法将每个特征放缩到给定范围内（默认范围0-1）
+通过归一化：
+    1.数据存在不同的评价指标，其量纲或量纲单位不同，处于不同的数量级。解决特征指标之间的可比性，经过归一化处理后，各指标处于同一数量级，便于综合对比。
+    2.求最优解的过程会变得平缓，更容易正确收敛。即能提高梯度下降求最优解时的速度
+    3.提高计算精度。
+但归一化过程中会造成一定的信息丢失。
+
+归一化方法常用方法有两种：
+### 线性归一化（minmax_scale）
+minmax_scale()变换函数为min-max标准化，也称为离差标准化，是对原始数据的线性变换，min-max标准化方法的缺陷在当有新数据加入时，可能会导致X.max和X.min的值发生变化，需要重新计算。
+Xscaled=X−X.min(axis=0)X.max(axis=0)−X.min(axis=0)⋅(max−min)+minXscaled=X−X.min(axis=0)X.max(axis=0)−X.min(axis=0)⋅(max−min)+min
+max,min是给定放缩范围的最大值和最小值
+通俗地解释 ：
+归一化结果=该点样本值与最小样本的差样本该轴跨度⋅放缩范围+放缩最小值归一化结果=该点样本值与最小样本的差样本该轴跨度⋅放缩范围+放缩最小值
+### Z-score标准差标准化方法
+Xscaled=X−μσXscaled=X−μσ
+x为某一具体数值μμ是平均值σσ是标准差
+
